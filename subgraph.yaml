@@ -1,0 +1,35 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: InstadappDSA
+    network: matic
+    source:
+      address: "0xA9B99766E6C676Cf1975c0D3166F96C0848fF5ad"
+      abi: InstadappDSA
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.2
+      language: wasm/assemblyscript
+      entities:
+        - LogAccountCreated
+        - LogNewAccount
+        - LogNewCheck
+        - LogNewMaster
+        - LogUpdateMaster
+      abis:
+        - name: InstadappDSA
+          file: ./abis/InstadappDSA.json
+      eventHandlers:
+        - event: LogAccountCreated(address,indexed address,indexed address,indexed address)
+          handler: handleLogAccountCreated
+        - event: LogNewAccount(indexed address,indexed address,indexed address)
+          handler: handleLogNewAccount
+        - event: LogNewCheck(indexed uint256,indexed address)
+          handler: handleLogNewCheck
+        - event: LogNewMaster(indexed address)
+          handler: handleLogNewMaster
+        - event: LogUpdateMaster(indexed address)
+          handler: handleLogUpdateMaster
+      file: ./src/mapping.ts

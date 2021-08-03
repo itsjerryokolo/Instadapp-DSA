@@ -1,0 +1,16 @@
+{
+  "name": "instadapp-dsa",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ itsjerryokolo/instadapp-dsa",
+    "create-local": "graph create --node http://localhost:8020/ itsjerryokolo/instadapp-dsa",
+    "remove-local": "graph remove --node http://localhost:8020/ itsjerryokolo/instadapp-dsa",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 itsjerryokolo/instadapp-dsa"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.21.0",
+    "@graphprotocol/graph-ts": "0.20.0"
+  }
+}
