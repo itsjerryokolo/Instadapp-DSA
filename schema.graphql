@@ -1,7 +1,9 @@
 type AccountCreated @entity {
   id: ID!
+  "DSA Account Created"
   account: Bytes
   origin: Bytes
+  "Owner of DSA Account Created"
   sender: Bytes
   owner: Bytes
   timestamp: BigInt!
