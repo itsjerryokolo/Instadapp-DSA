@@ -1,4 +1,4 @@
-# Instadapp-DSA
+# Instadapp-Defi Smart Account
 Subgraph to track Instadapp Defi-Smart Accounts(DSA) on Polygon Network
 #### GraphQL Endpoint: https://api.thegraph.com/subgraphs/name/itsjerryokolo/instadapp-dsa
 
