@@ -1,5 +1,5 @@
 # Instadapp-DSA
-Subgraph to track Defi-Smart Accounts(DSA) on Polygon Network
+Subgraph to track Instadapp Defi-Smart Accounts(DSA) on Polygon Network
 ### Query First 50 DSA Accounts
 ```graphql
 {
