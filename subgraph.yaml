@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,16 +8,18 @@ dataSources:
     source:
       address: "0xA9B99766E6C676Cf1975c0D3166F96C0848fF5ad"
       abi: InstadappDSA
+      startBlock: 12795242
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.2
+      apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - LogAccountCreated
-        - LogNewAccount
-        - LogNewCheck
-        - LogNewMaster
-        - LogUpdateMaster
+        - NewCheck
+        - AccountCreated
+        - NewMaster
+        - UpdateMaster
+        - Account
+        - NewAccount
       abis:
         - name: InstadappDSA
           file: ./abis/InstadappDSA.json

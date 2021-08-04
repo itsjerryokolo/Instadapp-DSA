@@ -1,6 +1,54 @@
-type ExampleEntity @entity {
+type Account @entity{
   id: ID!
-  count: BigInt!
-  sender: Bytes! # address
-  owner: Bytes! # address
+  created: [AccountCreated!] @derivedfrom (field:"account")
+  newAccount: [NewAccount!] @derivedfrom (field:"newAccount")
+  checks: [NewCheck!] @derivedfrom (field:"check")
+  masters: [NewMaster!] @derivedfrom (field:"newMasterAccount")
+  updatedMasters: [UpdateMaster!] @derivedfrom (field:"updatedAccount")
+}
+
+type AccountCreated @entity {
+  id: ID!
+  account: Account
+  origin: Account
+  sender: Account
+  owner: Account
+  timestamp: BigInt!
+  txHash: Bytes!
+  BlockNumber: BigInt!
+}
+
+type NewAccount @entity{
+  id: ID!
+  newAccount: Account
+  connectors: Account
+  check: Account
+  timestamp: BigInt!
+  txHash: Bytes!
+  BlockNumber: BigInt!
+}
+
+type NewCheck @entity{
+  id: ID!
+  accountVersion: BigInt!
+  check: Account
+  timestamp: BigInt!
+  txHash: Bytes!
+  BlockNumber: BigInt!
+}
+
+type NewMaster @entity{
+  id: ID!
+  newMasterAccount: Account
+  timestamp: BigInt!
+  txHash: Bytes!
+  BlockNumber: BigInt!
+}
+
+type UpdateMaster @entity{
+  id: ID!
+  updatedAccount: Account
+  timestamp: BigInt!
+  txHash: Bytes!
+  BlockNumber: BigInt!
 }
