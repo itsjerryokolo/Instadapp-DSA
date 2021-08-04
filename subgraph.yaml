@@ -18,7 +18,6 @@ dataSources:
         - AccountCreated
         - NewMaster
         - UpdateMaster
-        - Account
         - NewAccount
       abis:
         - name: InstadappDSA
