@@ -6,6 +6,7 @@ type AccountCreated @entity {
   "Owner of DSA Account Created"
   sender: Bytes
   owner: Bytes
+  version: BigInt
   timestamp: BigInt!
   txHash: Bytes!
   blockNumber: BigInt!
@@ -41,6 +42,127 @@ type NewMaster @entity{
 type UpdateMaster @entity{
   id: ID!
   updatedAccount: Bytes
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+type EnableUser @entity{
+  id: ID!
+  user: Bytes
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+type DisableUser @entity {
+  id: ID!
+  user: Bytes
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+  
+}
+
+
+# type DefaultImplementation @entity {
+#   id: ID!
+#   name: String!
+#   address: Bytes!
+#   implementationVersion: BigInt!
+#   version: BigInt!
+# }
+
+
+type LogCast @entity{
+  id: ID!
+  dsaWallet: Bytes
+  origin: Bytes
+  eventNames: [String!]!
+  eventParams: [Bytes!]!
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+
+}
+
+# type Build @entity{
+#   id: ID!
+#   address: Bytes
+#   origin: Bytes
+#   accountVersion: BigInt
+# }
+
+type ConnectorRemoved @entity{
+  id: ID!
+  connector: Bytes
+  connectorName: String
+  connectorNameHash: Bytes
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+type ConnectorUpdated @entity{
+  id: ID!
+  newConnector: Bytes
+  oldConnector: Bytes
+  connectorName: String
+  connectorNameHash: Bytes
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+type ConnectorAdded @entity{
+  id: ID!
+  connector: Bytes
+  connectorName: String
+  connectorNameHash: Bytes
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+type Controller @entity{
+  id: ID!
+  address: Bytes
+  enabled: Boolean!
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+# type ToggleChief @entity{
+#   id: ID!
+#   chiefAddress: Bytes!
+# }
+
+type SetDefaultImplementation @entity{
+  id: ID!
+  newImplementation: Bytes
+  defaultImplementation: Bytes
+  oldImplementation: Bytes
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+type RemoveImplementation @entity{
+  id: ID!
+  implementation: Bytes
+  defaultImplementation: Bytes
+  sigs: [Bytes!]!
+  timestamp: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+type AddImplementation @entity{
+  id: ID!
+  implementation: Bytes
+  defaultImplementation: Bytes
+  sigs: [Bytes!]!
   timestamp: BigInt!
   txHash: Bytes!
   blockNumber: BigInt!
